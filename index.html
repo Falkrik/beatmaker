@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Beatmaker</title>
+
+	<script src="jquery-3.4.1.min.js"></script>
+	<script src="beatmakerJS.js"></script>
+	<link rel="stylesheet" type="text/css" href="beatmakerCSS.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body onkeyup="buttonPress(event)" onload="start()">
+	<div id="navigation">
+		<span id="play" class="material-icons" onclick="playButton()">play_arrow</span>
+
+		<label class="divider"></label>
+
+		<!-- <div id="save" class="button">SAVE</div> -->
+		<!-- <div id="load" class="button">LOAD</div> -->
+		<div id="clear" class="button" onclick="clearBeat()">CLEAR</div>
+		<div id="random" class="button" onclick="randomBeat()">RANDOM</div>
+
+		<label class="divider"></label>
+
+		<div id="ticks" class="inputField">
+			<label>STEPS:</label>
+			<input type="text" id="steps" value="16" placeholder="0" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onkeyup='inputOnChange("STEP")'>
+			<h1 class="update material-icons hidden" id="stepUpdate" onclick="setStep()">update</h1>
+		</div>
+		<div id="bpmparent" class="inputField">
+			<label>BPM:</label>
+			<input type="text" id="bpm" value="120" placeholder="0" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onkeyup='inputOnChange("BPM")'>
+			<h1 class="update material-icons hidden" id="bpmUpdate" onclick="setBPM()">update</h1>
+		</div>
+
+		<label class="divider"></label>
+
+		<div id="volumeparent" class="inputField">
+			<label>VOL:</label>
+			<input type="text" id="volume" value="50" placeholder="0" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' onkeyup='inputOnChange("VOL")'>
+			<h1 class="update material-icons hidden" id="volUpdate" onclick="setVolume()">update</h1>
+		</div>
+
+		<label class="divider"></label>
+
+		<img src="img/line_tool.png" id="line_tool" onclick="activateTool('LINE')">
+		<img src="img/col_tool.png" id="col_tool" onclick="activateTool('COL')">
+
+
+
+	</div>
+	<div id="headers">
+		<p class="titleCount">Drum</p>
+		<p class="titleCount">Clap</p>
+		<p class="titleCount">Tss</p>
+		<p class="titleCount">Boom</p>
+		<p class="titleCount">Hit</p>
+		<p class="titleCount">Tss 2</p>
+		<p class="titleCount">Tss Chu</p>
+		<p class="titleCount">Empty Can</p>
+		<p class="titleCount">Maracas</p>
+		<p class="titleCount">Tick</p>
+
+	</div>
+	<div id="sequence">
+		<div class="row" id="row0"></div>
+		<div class="row" id="row1"></div>
+		<div class="row" id="row2"></div>
+		<div class="row" id="row3"></div>
+		<div class="row" id="row4"></div>
+		<div class="row" id="row5"></div>
+		<div class="row" id="row6"></div>
+		<div class="row" id="row7"></div>
+		<div class="row" id="row8"></div>
+		<div class="row" id="row9"></div>
+
+		<div id="timeline">
+			<div id="line"></div>
+		</div>
+	</div>
+
+</body>
+</html>
